@@ -5,8 +5,13 @@ phases:
   build:
     commands:
       - mvn package
+
+  post_build:
+    commands:
+      - mkdir `date +%Y`/`date +%m`/`date +%d`
+      - mv target/*.jar 
 artifacts:
   files:
-    - target/excelconverter-1.0.jar
+    - *.jar
   discard-paths: yes
 #  base-directory: location
