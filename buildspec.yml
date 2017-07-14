@@ -1,18 +1,10 @@
 version: 0.2
 
-env:
-  variables:
             
 phases:
-  install:
-    commands:
-  pre_build:
-    commands:
   build:
     commands:
       - mvn package
-  post_build:
-    commands:
 artifacts:
   files:
     - target/excelconverter-1.0.jar
