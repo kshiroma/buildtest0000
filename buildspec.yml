@@ -13,10 +13,12 @@ phases:
 
   post_build:
     commands:
+      - export DIRECTORY=`date +%Y/%m%d`
       - mkdir `date +%Y/%m%d`
       - mv target/*.jar `date +%Y/%m%d`
       - mv target/*.jar .
 artifacts:
   files:
-    - *.jar
-  discard-paths: yes
+    - $DIRECTORY/excelconverter-1.0.jar
+    - target/excelconverter-1.0.jar
+
