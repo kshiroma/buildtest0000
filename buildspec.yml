@@ -18,6 +18,5 @@ phases:
       - mv target/*.jar .
 artifacts:
   files:
-    - `date +%Y/%m%d`/*.jar
     - *.jar
   discard-paths: yes
