@@ -4,11 +4,11 @@ version: 0.2
 phases:
   build:
     commands:
-      - rm -rf config
-      - rm -rf external-resources/product
-      - git clone https://test-user:shiromakenji@git-codecommit.ap-northeast-1.amazonaws.com/v1/repos/cattleya_test000 config --depth 1
-      - mv config/product external-resouces/product
-      - rm -rf config
+#      - rm -rf config
+#      - rm -rf external-resources/product
+#      - git clone https://test-user:shiromakenji@git-codecommit.ap-northeast-1.amazonaws.com/v1/repos/cattleya_test000 config --depth 1
+#      - mv config/product external-resouces/product
+#      - rm -rf config
       - mvn package
 
   post_build:
