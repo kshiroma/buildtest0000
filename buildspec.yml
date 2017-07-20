@@ -11,7 +11,7 @@ phases:
       - git clone https://git-codecommit.ap-northeast-1.amazonaws.com/v1/repos/cattleya_test000 config --depth 1
       - mv config/product external-resources/product
       - rm -rf config
-      - bash build/$EVN.sh
+      - bash build/$ENV.sh
 
   post_build:
     commands:
