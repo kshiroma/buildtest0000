@@ -19,8 +19,12 @@ phases:
       - mkdir $DIRECTORY -p
       - cp target/excelconverter-1.0.jar $DIRECTORY/excelconverter-1.0.jar
       - cp target/excelconverter-1.0.jar excelconverter-1.0.jar
+  uplad_artifacts
+    commands:
+      - aws s3 cp excelconverter-1.0.jar s3://shiromakenji-first-test/product/latest/excelconverter-1.0.jar
+      - aws s3 cp excelconverter-1.0.jar s3://shiromakenji-first-test/product/$DIRECTORY/$CODEBUILD_BUILD_ID/excelconverter-1.0.jar
 artifacts:
   files:
-    - $DIRECTORY/excelconverter-1.0.jar
+     - $DIRECTORY/excelconverter-1.0.jar
 #    - excelconverter-1.0.jar
 
