@@ -68,7 +68,33 @@
                     </execution>
                 </executions>
             </plugin>
-
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-jar-plugin</artifactId>
+                <version>2.4</version>
+                <configuration>
+                    <archive>
+                        <manifest>
+                            <addDefaultImplementationEntries>true</addDefaultImplementationEntries>
+                            <addDefaultSpecificationEntries>true</addDefaultSpecificationEntries>
+                        </manifest>
+                        <manifestEntries>
+                            <Application-Name>${project.build.finalName}</Application-Name>
+                            <Application-Version>${project.version}</Application-Version>
+							<awsRegion>${AWS_REGION}</awsRegion>
+							<codebuildBuildArn>${CODEBUILD_BUILD_ARN}</codebuildBuildArn>
+							<codebuildBuildId>${CODEBUILD_BUILD_ID}</codebuildBuildId>
+							<codebuildBuildImage>${CODEBUILD_BUILD_IMAGE}</codebuildBuildImage>
+							<codebuildBuildSucceeding>${CODEBUILD_BUILD_SUCCEEDING}</codebuildBuildSucceeding>
+							<codebuildInitiator>${CODEBUILD_INITIATOR}</codebuildInitiator>
+							<codebuildKmsKeyId>${CODEBUILD_KMS_KEY_ID}</codebuildKmsKeyId>
+							<codebuildResolvedSourceVersion>${CODEBUILD_RESOLVED_SOURCE_VERSION}</codebuildResolvedSourceVersion>
+							<codebuildSourceVersion>${CODEBUILD_SOURCE_VERSION}</codebuildSourceVersion>
+							<codebuildBuildImage>${CODEBUILD_BUILD_IMAGE}</codebuildBuildImage>
+                        </manifestEntries>
+                    </archive>
+                </configuration>
+            </plugin>
         </plugins>
     </build>
 
