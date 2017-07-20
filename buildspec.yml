@@ -8,17 +8,17 @@ phases:
       - rm -rf external-resources/product
       - git config --global credential.helper '!aws codecommit credential-helper $@'
       - git config --global credential.UseHttpPath true
-      - git clone https://test-user:shiromakenji@git-codecommit.ap-northeast-1.amazonaws.com/v1/repos/cattleya_test000 config --depth 1
+      - git clone https://git-codecommit.ap-northeast-1.amazonaws.com/v1/repos/cattleya_test000 config --depth 1
       - mv config/product external-resouces/product
       - rm -rf config
       - mvn package
 
   post_build:
     commands:
-      - export DIRECTORY=`date +%Y/%m%d`
-      - mkdir `date +%Y/%m%d` -p
-      - cp target/*.jar `date +%Y/%m%d`
-      - cp target/*.jar .
+      - export DIRECTORY=`date +%Y/%m/S%d`
+      - mkdir $DIRECTORY -p
+      - cp target/excelconverter-1.0.jar $DIRECTORY/excelconverter-1.0.jar
+      - cp target/excelconverter-1.0.jar.jar excelconverter-1.0.jar
 artifacts:
   files:
     - $DIRECTORY/excelconverter-1.0.jar
