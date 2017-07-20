@@ -18,7 +18,7 @@ phases:
       - export DIRECTORY=`date +%Y/%m/S%d`
       - mkdir $DIRECTORY -p
       - cp target/excelconverter-1.0.jar $DIRECTORY/excelconverter-1.0.jar
-      - cp target/excelconverter-1.0.jar.jar excelconverter-1.0.jar
+      - cp target/excelconverter-1.0.jar excelconverter-1.0.jar
 artifacts:
   files:
     - $DIRECTORY/excelconverter-1.0.jar
