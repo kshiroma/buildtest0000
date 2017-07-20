@@ -11,16 +11,12 @@ phases:
       - git clone https://git-codecommit.ap-northeast-1.amazonaws.com/v1/repos/cattleya_test000 config --depth 1
       - mv config/product external-resources/product
       - rm -rf config
-      - mvn package
+      - bash build/$EVN.sh
 
   post_build:
     commands:
       - export DIRECTORY=`date +%Y/%m/%d`
+      - export TIMESTAMP=`date +%Y%m%d%H%M%S`
       - cp target/excelconverter-1.0.jar excelconverter-1.0.jar
-      - aws s3 cp excelconverter-1.0.jar s3://shiromakenji-first-test/product/latest/excelconverter-1.0.jar
-      - aws s3 cp excelconverter-1.0.jar s3://shiromakenji-first-test/product/$DIRECTORY/$CODEBUILD_BUILD_ID/excelconverter-1.0.jar
-artifacts:
-  files:
-     - $DIRECTORY/excelconverter-1.0.jar
-#    - excelconverter-1.0.jar
-
+      - aws s3 cp excelconverter-1.0.jar s3://shiromakenji-first-test/$ENV/latest/excelconverter-1.0.jar
+      - aws s3 cp excelconverter-1.0.jar s3://shiromakenji-first-test/$ENV/$DIRECTORY/excelconverter-$TIMESTAMP.jar
